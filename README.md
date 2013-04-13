@@ -1,7 +1,7 @@
-frontend-boilerplate
+Frontend Boilerplate
 ====================
 
-This frontend boilerplate is a mirco framework that combines some of the latest frontend library with some customizations. It comes with Jasmine as testing framework, plus build tool and build config.
+This frontend boilerplate includes a customized mirco framework that combines some of the latest frontend library with some customizations. It comes with Jasmine as testing framework, plus build tool and build config.
 
 Libraries
 ---------
