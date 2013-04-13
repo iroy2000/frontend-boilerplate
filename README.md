@@ -12,6 +12,7 @@ Libraries
 * Require-jQuery
 * Text ( RequireJS Plugin )
 * Modernizr
+* HTML5 Bolierplate ( partial )
 
 
 Usage
@@ -31,7 +32,7 @@ This Frontend Boilerplate has a customized micro framework in it.  And by defaul
 * module/action
 * module/action?param=1&param=2
 
->> ** All the query string will be parsed into json object **
+** All the query string will be parsed into json object **
 
 The micro framework is using a package module with actions in it. For example:
 
@@ -43,4 +44,8 @@ In other words, each module should have a **\_default** action, and it will thro
 
 By default, each Module will receive an option object in which you will have access to the **router instance**, and a **global view**.  The router instance will let you bind or listen to any events on router; and for the global view, it is an abstraction of the page and enable you to take action on any part on the page without creating extra views.  For view that needs specific events and functions, then it will be up to developer to create its own view. 
 
-And for each module action, you will be able to access the module instance properties and other functions, and also you will have an options object in which you will get the query string ( in json format ) if any. 
+And for each module action, you will be able to access the module instance properties and other functions, and also you will have an options object in which you will get the query string ( in json format ) if any.
+
+**!Important** In main.js, there is a "allowModules" variable, which you need to define what Module you allow your user to access.  In other words, modules that doesn't list in the "allowModules" will not be accessible.
+
+There will be more documentation ( and dedicated documentation ) about the micro framework in the future.
