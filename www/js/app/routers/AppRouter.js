@@ -4,9 +4,8 @@
  *  And you can also built on top or create your own Router
  *  If you choose to use your own router, make sure to change path in main.js
  */
-define(['backbone','underscore', 'localstorage'],function(Backbone,_,localstorage) {
+define(['backbone','underscore', 'localstorage', 'views/AppGlobalView'],function(Backbone,_,localstorage, AppGlobalView) {
     var modules = {}, // this is for caching modules when instantiate
-        AppGlobalView,  // this is the application main global view
         appGlobalView; // this is the AppGlobalView instance
 
 
@@ -37,30 +36,7 @@ define(['backbone','underscore', 'localstorage'],function(Backbone,_,localstorag
             return params;
         }
     });
-    
-    // define application main container view which will share by all modules
-    // Note: This is abstracting the 'high level' page as one global view
-    //       and you can also create individual view for each module if you need.
-    // Note: This is a stub at this point, please define in the way that fits your need.
-    //       You can define your own events in global veiw, a good candidate would be login logout button.
-    //       But there could be many other use cases as well.
-    AppGlobalView = Backbone.View.extend({
-        el: '.container',
-        // accessor for main section in template
-        getMain: function() {
-            this.$mainContent = this.$mainContent || this.$el.find('.main');
-            return this.$mainContent;
-        },
-        getSideBar: function() {
-        },
-        getHeader: function() {
-        },
-        getFooter: function() {
-        },
-        getNav: function() {
-        }
-    });
-    
+     
     appGlobalView = new AppGlobalView;
 
     // defining application router
