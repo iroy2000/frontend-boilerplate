@@ -21,6 +21,8 @@ You should see there are two folders **www/**  and  **build-tool/**.  The **www/
 
 node r.js -o app.build.js
 
+If you need to write Test, there is a test folder where you can write the Spec or test suite directly.  It is all hooked up and you just need to provide test case.  Currently the test case only contain the RouterTest.
+
 Note about micro framework
 ---------------------------
 This Frontend Boilerplate has a customized micro framework in it.  And by default it recognized the following **backbone 'routes'**.
