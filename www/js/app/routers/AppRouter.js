@@ -6,7 +6,8 @@
  */
 define(['backbone','underscore', 'localstorage', 'views/AppGlobalView'],function(Backbone,_,localstorage, AppGlobalView) {
     var modules = {}, // this is for caching modules when instantiate
-        appGlobalView; // this is the AppGlobalView instance
+        appGlobalView, // this is the AppGlobalView instance
+        DEFAULT_ACTION = 'indexAction';
 
 
     // utility function using by Router and mixin to underscore
@@ -57,7 +58,7 @@ define(['backbone','underscore', 'localstorage', 'views/AppGlobalView'],function
             // we dynamically pull in module when we need it
             require(['modules/IndexModule'], function(Module) {
                 modules['index'] = modules['index'] || new Module({router:self, globalView:appGlobalView});
-                self._callModuleAction('index', '_default', queryString);
+                self._callModuleAction('index', DEFAULT_ACTION, queryString);
             });
         },
         routeModuleAction: function(module, action, querystring) {
@@ -79,7 +80,7 @@ define(['backbone','underscore', 'localstorage', 'views/AppGlobalView'],function
                     // we cache the instance
                     modules[module] = modules[module] || new Module({router:self, globalView:appGlobalView});
                     
-                    // call the module action if existed or fall to _default    
+                    // call the module action if existed or fall to Default Action    
                     self._callModuleAction(module, action, querystring);
                 });
             } else {
@@ -87,20 +88,20 @@ define(['backbone','underscore', 'localstorage', 'views/AppGlobalView'],function
             }
         },
         routeModule: function(module, queryString) {
-            this.routeModuleAction(module, '_default', queryString);
+            this.routeModuleAction(module, DEFAULT_ACTION, queryString);
         },
         // this is a helper function for calling module action
         _callModuleAction: function(module, action, querystring) {
-            module = modules[module];
- 
+            module = modules[module];    
+            action = action + 'Action'; 
             // if module action existed 
             if(module[action]) {
                 module[action](_(querystring).parseQueryString());
             } else {
-                if(module['_default']) {
-                    module['_default'](_(querystring).parseQueryString());
+                if(module[DEFAULT_ACTION]) {
+                    module[DEFAULT_ACTION](_(querystring).parseQueryString());
                 } else {
-                    throw Error("Please define _default action  where requested action is not existed");
+                    throw Error("Please define indexAction as minimal");
                 }
             } 
         }

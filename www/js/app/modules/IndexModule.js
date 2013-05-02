@@ -23,7 +23,7 @@ define(['models/Test', 'views/test/TestListView'],function(TestData, TestListVie
     };
 
     _.extend(IndexModule.prototype, {
-        _default: function() {
+        indexAction: function() {
             this.collection.fetch(); 
         }
     });

@@ -38,11 +38,11 @@ This Frontend Boilerplate has a customized micro framework in it.  And by defaul
 
 The micro framework is using a package module with actions in it. For example:
 
-* The first two routes above will fetch the **IndexModule->_default()** 
-* The 3rd and 4th route, if you provide in url **/#demo**, it will fetch the **DemoModule->_default**
-* The 5th and 6th route, if you provide in url **/#demo/test**, it will fetch the **DemoModule->test()**
+* The first two routes above will fetch the **IndexModule->indexAction()** 
+* The 3rd and 4th route, if you provide in url **/#demo**, it will fetch the **DemoModule->indexAction()**
+* The 5th and 6th route, if you provide in url **/#demo/test**, it will fetch the **DemoModule->testAction()**
 
-In other words, each module should have a **\_default** action, and it will throw an error if you do not.  What it does is when it doesn't see an action comes in or the action requested is not existed, it will use the **\_default()**.  
+In other words, each module should have a **\indexAction** action, and it will throw an error if you do not.  What it does is when it doesn't see an action comes in or the action requested is not existed, it will use the **\indexAction()**.  
 
 By default, each Module will receive an option object in which you will have access to the **router instance**, and a **global view**.  The router instance will let you bind or listen to any events on router; and for the global view, it is an abstraction of the page and enable you to take action on any part on the page without creating extra views.  For view that needs specific events and functions, then it will be up to developer to create its own view. 
 

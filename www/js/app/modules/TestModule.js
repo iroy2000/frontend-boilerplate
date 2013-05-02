@@ -5,13 +5,13 @@ define(function() {
     };
 
     _.extend(TestModule.prototype, {
-        ping: function() {
+        pingAction: function() {
             this.globalView.getMain().html('Thank you for pinging me');
         },
-        message: function() {
+        messageAction: function() {
             this.globalView.getMain().html('This is message action of TestModule');
         },
-        _default: function() {
+        indexAction: function() {
             this.globalView.getMain().html('This is default action of TestModule');   
         }
     });
